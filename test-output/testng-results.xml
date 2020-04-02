@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="76680" started-at="2020-04-02T08:31:08 PDT" finished-at="2020-04-02T08:32:25 PDT">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="76680" started-at="2020-04-02T08:31:08 PDT" finished-at="2020-04-02T08:32:25 PDT">
+      <class name="com.case10.dirtyunicorn.Login">
+        <test-method status="PASS" signature="case10login()[pri:0, instance:com.case10.dirtyunicorn.Login@cd2dae5]" name="case10login" duration-ms="76324" started-at="2020-04-02T08:31:08 PDT" finished-at="2020-04-02T08:32:25 PDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- case10login -->
+      </class> <!-- com.case10.dirtyunicorn.Login -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
