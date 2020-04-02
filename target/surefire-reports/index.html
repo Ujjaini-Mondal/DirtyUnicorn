@@ -91,21 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
-                  </li>
-                  <li>
-                    <span class="method-list-title passed">Passed methods</span>
-                    <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods passed suite-Surefire_suite"> (hide)</a> <!-- hide-methods passed suite-Surefire_suite -->
-                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods passed suite-Surefire_suite"> (show)</a> <!-- show-methods passed suite-Surefire_suite -->
-                    </span>
-                    <div class="method-list-content passed suite-Surefire_suite">
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Surefire_suite" title="com.case10.dirtyunicorn.AppTest" hash-for-method="shouldAnswerWithTrue">shouldAnswerWithTrue</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Surefire_suite -->
+                    <span class="method-stats">0 methods,   </span>
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,21 +103,6 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
-          <div class="suite-Surefire_suite-class-passed">
-            <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com.case10.dirtyunicorn.AppTest</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="shouldAnswerWithTrue">
-                  </a> <!-- shouldAnswerWithTrue -->
-                  <span class="method-name">shouldAnswerWithTrue</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Surefire_suite-class-passed -->
         </div> <!-- panel Surefire_suite -->
         <div panel-name="test-xml-Surefire_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -140,10 +111,10 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite thread-count=&quot;1&quot; verbose=&quot;0&quot; name=&quot;Surefire suite&quot; junit=&quot;true&quot;&gt;
-  &lt;test thread-count=&quot;1&quot; verbose=&quot;0&quot; name=&quot;Surefire test&quot; junit=&quot;true&quot;&gt;
+&lt;suite thread-count=&quot;1&quot; verbose=&quot;0&quot; name=&quot;Surefire suite&quot;&gt;
+  &lt;test thread-count=&quot;1&quot; verbose=&quot;0&quot; name=&quot;Surefire test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.case10.dirtyunicorn.AppTest&quot;/&gt;
+      &lt;class name=&quot;com.case10.dirtyunicorn.Testcase1&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Surefire test --&gt;
 &lt;/suite&gt; &lt;!-- Surefire suite --&gt;
@@ -183,16 +154,12 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
-data.setCell(0, 0, 0)
-data.setCell(0, 1, 'shouldAnswerWithTrue')
-data.setCell(0, 2, 'com.case10.dirtyunicorn.AppTest')
-data.setCell(0, 3, 11);
+data.addRows(0);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 11 ms</span>
+              <span class="suite-total-time">Total running time: 0 ms</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -217,12 +184,6 @@ return data;
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="chronological-class">
-              <div class="chronological-class-name">com.case10.dirtyunicorn.AppTest</div> <!-- chronological-class-name -->
-              <div class="test-method">
-                <span class="method-name">shouldAnswerWithTrue</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->
