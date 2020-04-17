@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.case10.dirtyunicorn.Login">
+      <class name="com.case10.dirtyunicorn.AddtoCart">
         <methods>
-          <include name="case10login"/>
+          <include name="addtocart"/>
         </methods>
-      </class> <!-- com.case10.dirtyunicorn.Login -->
+      </class> <!-- com.case10.dirtyunicorn.AddtoCart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
