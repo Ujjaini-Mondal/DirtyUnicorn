@@ -7,7 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
@@ -27,10 +29,11 @@ public class AddtoCart extends Init{
 		Reporter.log("Browser Opened");
 		login.case10login();
 		// TODO Auto-generated method stub
-		//WebDriverWait time=new WebDriverWait(driver,30);
-		//time.until(ExpectedConditions.elementToBeClickable(By.id("menu-item-5321")));
-		//Thread.sleep(3000);
-		login.driver.findElement(By.id("menu-item-5321")).click();
+		WebDriverWait time=new WebDriverWait(login.driver,40);
+		time.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='login-form-popup']")));
+		//time.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='menu-item-5321']")));
+		//Thread.sleep(4000);
+		login.driver.findElement(By.xpath("//li[@id='menu-item-5321']")).click();
 		Assert.assertTrue(login.driver.findElement(By.xpath("//span[@class='prdctfltr_woocommerce_filter_title']")).isDisplayed());
 		String abc=searchforproduct(product);
 		
@@ -56,7 +59,7 @@ public class AddtoCart extends Init{
 	}
 	
 	
-		public String searchforproduct(String product) {
+		public String searchforproduct(String product) throws InterruptedException {
 			
 			int count=1;
 			while(login.driver.findElement(By.xpath("//i[@class='icon-angle-right']")).isDisplayed())
@@ -72,8 +75,7 @@ public class AddtoCart extends Init{
 							selectedProduct.click();
 							return "Product found"; 
 						}
-				String pass=login.driver.findElement(By.xpath("//h1[@class='product-title entry-title']")).getText();
-				Assert.assertTrue(pass.equalsIgnoreCase("Candy Color Geometry Pattern Retro Marble Case"));
+				
 					}
 			//page ends here
 					//System.out.printf("Not found in page %i", count);
@@ -90,10 +92,14 @@ public class AddtoCart extends Init{
 					return "Product found";
 				}
 				
-				
+				WebDriverWait time=new WebDriverWait(login.driver,40);
+				time.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[@class='product-title entry-title']")));
+				String pass=login.driver.findElement(By.xpath("//h1[@class='product-title entry-title']")).getText();
+				Assert.assertTrue(pass.equalsIgnoreCase("Candy Color Geometry Pattern Retro Marble Case"));	
 			}
 			return "Not found";
 		}
+		
 		
 		@DataProvider
 		public Object[] getData()
