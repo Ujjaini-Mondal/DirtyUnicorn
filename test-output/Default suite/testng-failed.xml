@@ -5,7 +5,7 @@
     <classes>
       <class name="com.case10.dirtyunicorn.AddtoCart">
         <methods>
-          <include name="addtocart"/>
+          <include name="addtocart" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.case10.dirtyunicorn.AddtoCart -->
     </classes>
