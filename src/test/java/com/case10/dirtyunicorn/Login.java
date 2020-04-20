@@ -40,11 +40,11 @@ public class Login extends Init{
 		driver.findElement(By.id("username")).sendKeys(username);
 		driver.findElement(By.id("password")).sendKeys(password);
 		driver.findElement(By.xpath("//button[@name='login']")).click();
-		//WebDriverWait time=new WebDriverWait(driver,20);
-		//time.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='header-button']")));
+		WebDriverWait time=new WebDriverWait(driver,30);
+		time.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='login-form-popup']")));
 		//Thread.sleep(2000);
-		//String text=driver.findElement(By.xpath("//div[@class='header-button']")).getText();
-		//Assert.assertTrue(text.equalsIgnoreCase("MY ACCOUNT"));
+		String text=driver.findElement(By.xpath("//div[@class='header-button']")).getText();
+		Assert.assertTrue(text.equalsIgnoreCase("MY ACCOUNT"));
 	}
 	
 }

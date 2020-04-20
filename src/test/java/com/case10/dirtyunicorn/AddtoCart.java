@@ -31,11 +31,11 @@ public class AddtoCart extends Init{
 		// TODO Auto-generated method stub
 		WebDriverWait time=new WebDriverWait(login.driver,40);
 		time.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@id='login-form-popup']")));
-		//time.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@id='menu-item-5321']")));
-		//Thread.sleep(4000);
+		clearcart();
 		login.driver.findElement(By.xpath("//li[@id='menu-item-5321']")).click();
 		Assert.assertTrue(login.driver.findElement(By.xpath("//span[@class='prdctfltr_woocommerce_filter_title']")).isDisplayed());
-		String abc=searchforproduct(product);
+		
+		String xyz=searchforproduct(product);
 		
 		
 		login.driver.findElement(By.id("color")).sendKeys(Keys.ARROW_DOWN);
@@ -51,15 +51,21 @@ public class AddtoCart extends Init{
 		//login.driver.findElement(By.id("wpeae_shipping_field")).sendKeys(Keys.ARROW_DOWN);
 		//login.driver.findElement(By.id("wpeae_shipping_field")).sendKeys(Keys.ENTER);
 		login.driver.findElement(By.xpath("//button[@class='single_add_to_cart_button button alt']")).click();
+		WebDriverWait d=new WebDriverWait(login.driver,20);
+		d.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='header-cart-title']")));
 		Actions cart= new Actions(login.driver);
 		cart.moveToElement(login.driver.findElement(By.xpath("//span[@class='header-cart-title']"))).build().perform();
-		login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']//p[@class='woocommerce-mini-cart__buttons buttons']//a[@class='button checkout wc-forward']")).click();
+		WebDriverWait t=new WebDriverWait(login.driver,20);
+		t.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='widget_shopping_cart_content']")));
+		Assert.assertTrue(login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']")).getText().contains(product));
 		
+		login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']//p[@class='woocommerce-mini-cart__buttons buttons']//a[@class='button checkout wc-forward']")).click();
+		  
 		
 	}
 	
 	
-		public String searchforproduct(String product) throws InterruptedException {
+		public String searchforproduct(String abc) throws InterruptedException {
 			
 			int count=1;
 			while(login.driver.findElement(By.xpath("//i[@class='icon-angle-right']")).isDisplayed())
@@ -68,10 +74,11 @@ public class AddtoCart extends Init{
 				//page starts from here
 					List<WebElement> pageProducts=login.driver.findElements(By.xpath("//p[@class='name product-title']"));
 					int number=pageProducts.size();
+					System.out.println(abc);
 					for(int i=0;i<number;i++) {
 						WebElement selectedProduct=pageProducts.get(i);
 						//
-						if (selectedProduct.getText().equals(product)){
+						if (selectedProduct.getText().equals(abc)){
 							selectedProduct.click();
 							return "Product found"; 
 						}
@@ -87,7 +94,7 @@ public class AddtoCart extends Init{
 				WebElement selectedProduct=pageProducts.get(i);
 				//
 				System.out.println(selectedProduct.getText());
-				if (selectedProduct.getText().equals(product)){
+				if (selectedProduct.getText().equals(abc)){
 					selectedProduct.click();
 					return "Product found";
 				}
@@ -95,9 +102,27 @@ public class AddtoCart extends Init{
 				WebDriverWait time=new WebDriverWait(login.driver,40);
 				time.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[@class='product-title entry-title']")));
 				String pass=login.driver.findElement(By.xpath("//h1[@class='product-title entry-title']")).getText();
-				Assert.assertTrue(pass.equalsIgnoreCase("Candy Color Geometry Pattern Retro Marble Case"));	
+				Assert.assertTrue(pass.equalsIgnoreCase(abc));	
 			}
 			return "Not found";
+		}
+		
+		
+		public void clearcart() throws InterruptedException
+		
+		{
+			Actions cart= new Actions(login.driver);
+			cart.moveToElement(login.driver.findElement(By.xpath("//span[@class='header-cart-title']"))).build().perform();
+			
+			String variable=login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']")).getText();
+			while(!variable.equalsIgnoreCase("No products in the cart."))
+			{	
+				cart.moveToElement(login.driver.findElement(By.xpath("//span[@class='header-cart-title']"))).build().perform();
+				WebDriverWait unit=new WebDriverWait(login.driver,60);
+				unit.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='remove remove_from_cart_button']")));
+				login.driver.findElement(By.xpath("//a[@class='remove remove_from_cart_button']")).click();
+				
+			}
 		}
 		
 		
