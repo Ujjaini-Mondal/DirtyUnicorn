@@ -2,7 +2,7 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
   	<classes>
-      <class name="com.case10.dirtyunicorn.AddtoCart"/>
+      <class name="com.case10.dirtyunicorn.Wishlist"/>
      </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

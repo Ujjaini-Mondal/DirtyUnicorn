@@ -3,11 +3,11 @@
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.case10.dirtyunicorn.AddtoCart">
+      <class name="com.case10.dirtyunicorn.Wishlist">
         <methods>
-          <include name="addtocart" invocation-numbers="0"/>
+          <include name="wishlist" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.case10.dirtyunicorn.AddtoCart -->
+      </class> <!-- com.case10.dirtyunicorn.Wishlist -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -84,7 +84,7 @@ public class AddtoCart extends Init{
 						}
 				
 					}
-			//page ends here
+					//page ends here
 					//System.out.printf("Not found in page %i", count);
 				login.driver.findElement(By.xpath("//i[@class='icon-angle-right']")).click();
 			}
@@ -115,13 +115,21 @@ public class AddtoCart extends Init{
 			cart.moveToElement(login.driver.findElement(By.xpath("//span[@class='header-cart-title']"))).build().perform();
 			
 			String variable=login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']")).getText();
+			WebElement wait = login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']"));
+			
 			while(!variable.equalsIgnoreCase("No products in the cart."))
 			{	
+				Thread.sleep(2000);
 				cart.moveToElement(login.driver.findElement(By.xpath("//span[@class='header-cart-title']"))).build().perform();
-				WebDriverWait unit=new WebDriverWait(login.driver,60);
+				WebDriverWait unit=new WebDriverWait(login.driver,30);
 				unit.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@class='remove remove_from_cart_button']")));
-				login.driver.findElement(By.xpath("//a[@class='remove remove_from_cart_button']")).click();
 				
+				login.driver.findElement(By.xpath("//a[@class='remove remove_from_cart_button']")).click();
+				WebDriverWait timeunit=new WebDriverWait(login.driver,40);
+				timeunit.until(ExpectedConditions.invisibilityOf(wait));
+				variable=login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']")).getText();
+				wait = login.driver.findElement(By.xpath("//div[@class='widget_shopping_cart_content']"));
+			
 			}
 		}
 		
